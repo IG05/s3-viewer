@@ -1,6 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { validateCognitoToken } from '@/lib/cognito'
-import { ddbDocClient, GetCommand, PutCommand, UpdateCommand } from '@/lib/aws'
+import { ddbDocClient } from '@/lib/aws'
+import {
+  GetCommand,
+  PutCommand,
+  UpdateCommand
+} from '@aws-sdk/lib-dynamodb'
+
 
 export async function POST(req: NextRequest, { params }: { params: { requestId: string } }) {
   try {
